@@ -33,7 +33,10 @@ Route::get('/update', [UserController::class,'update']); //Enrealidad es un put
 
 /**************************************** Rutas de Category ***********************************************/
 
-Route::get('/category/create', [CategoryController::class,'create']); //Enrealidad es un post
+Route::get('/category', [CategoryController::class,'list']);
+Route::post('/category/create', [CategoryController::class,'create']);
+
+// Route::get('/category/create', [CategoryController::class,'create']); //Enrealidad es un post
 Route::get('/category/store', [CategoryController::class,'store']);//Enrealidad es un post
 Route::get('/category/edit', [CategoryController::class,'edit']);//Enrealidad es un put
 Route::get('/category/update', [CategoryController::class,'update']);//Enrealidad es un put
