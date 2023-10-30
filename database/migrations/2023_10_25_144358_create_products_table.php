@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('precio');
             $table->string('imagen')->nullable;
             $table->string('descripcion')->nullable;
-            $table->string('categoria_id')->nullable;
-            $table->boolean('habilitado');
-            $table->timestamps();
+            $table->unsignedBigInteger('categoria_id');
+            $table->foreign('categoria_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->boolean('habilitado')->default(true);
         });
     }
 

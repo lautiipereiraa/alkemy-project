@@ -9,6 +9,7 @@ class PayMethods extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
     protected $fillable = [
         "tipo",
     ];

@@ -3,6 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\BuyOrder;
+use App\Models\Category;
+use App\Models\PayMethods;
+use App\Models\Product;
+use App\Models\ShopCart;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +24,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        User::factory(10)->create();
+        Category::factory(5)->create();
+        Product::factory(10)->create();
+        ShopCart::factory(10)->create();
+        PayMethods::factory(10)->create();
+        BuyOrder::factory(10)->create();
     }
 }

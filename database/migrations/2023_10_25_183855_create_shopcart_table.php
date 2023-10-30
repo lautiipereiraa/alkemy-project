@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shopcart', function (Blueprint $table) {
+        Schema::create('shop_carts', function (Blueprint $table) {
             $table->id();
             $table->string('usuario_id',100);
             $table->double('importe');
             $table->date('fecha_creacion');
-            $table->boolean('finalizado');
-            $table->timestamps();
+            $table->boolean('finalizado')->default(true);
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shopcart');
+        Schema::dropIfExists('shop_carts');
     }
 };

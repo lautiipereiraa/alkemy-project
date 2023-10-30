@@ -4,28 +4,42 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\JWT;
+
 
 class UserController extends Controller
-{
-    // Get -> /users (devuelve una lsita de user)
-    // Get -> /users/{id} (devuelve un usuario en especifico)
-    // Post -> /users (crea un nuevo user)
-    // Put -> /users/{id} (actualiza un user exstente)
-    // Delete -> /users/{id} (elimina un usuario existente)
-
+{    
     public function create(){
-        echo "Esta funcion te va a redirigir al formulario para crearte el user";
+        return view("user.create");
     }
-
     public function store(Request $request){
-        echo"Esta funcion te va a crear el user";
+        $datosDelUsuario = $request->all();
+        $datos = User::create($datosDelUsuario);
+        return redirect("/create");
     }
-
-    public function edit(){
-        echo "Esta function me va a mostrar el formulario de edicion del user";
-    }
-
-    public function update(Request $request){
-        echo "Esta function me va a actualizar el recurso del user";
-    }
+    //     public function login(Request $request){
+    //     $credentials = request()->validate([
+    //         'email' => 'required',
+    //         'contrasena' => 'required',
+    //     ]). [
+    //         'email.required' => 'El campo email es obligatorio',
+    //         'contrasena.required' => 'El campo contraseña es obligatorio'
+    //     ];
+    
+    //     if(auth()->attempt($credentials)){
+    //         request()->session()->regenerate();
+    //         return redirect()->route('');
+    //     }
+    
+    //     return back()->withErrors([
+    //         'email' => 'Las credenciales no coinciden con nuestros registros'
+    //     ]);
+    // }
+    // public function logout(){
+    //     auth()->logout();
+    //     request()->session()->invalidate();
+    //     request()->session()->regenerate();
+    //     return redirect()->route('/create');
+    // }
 }

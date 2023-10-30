@@ -9,6 +9,8 @@ class ShopCart extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         "usuario_id",
         "importe",

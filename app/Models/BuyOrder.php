@@ -9,6 +9,7 @@ class BuyOrder extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
     protected $fillable = [
         'carrito_id',
         'cantidad',
